@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxetx2w3gs4gr"
-path="res://.godot/imported/yellowbird-downflap.png-af3cca2d1547ef72e01d345e11537e5b.ctex"
+uid="uid://cb3fw6j2c364v"
+path="res://.godot/imported/bird3.png-f9c6b58c0b79dca9a32430fbf9b734b9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/yellowbird-downflap.png"
-dest_files=["res://.godot/imported/yellowbird-downflap.png-af3cca2d1547ef72e01d345e11537e5b.ctex"]
+source_file="res://assets/bird3.png"
+dest_files=["res://.godot/imported/bird3.png-f9c6b58c0b79dca9a32430fbf9b734b9.ctex"]
 
 [params]
 
