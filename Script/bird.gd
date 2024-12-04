@@ -31,7 +31,7 @@ func _physics_process(delta):
 			$AnimatedSprite2D.play()
 		elif falling:
 			set_rotation(PI/2) #rotate the bird to being face down
-			$AnimatedSprite2D.STOP()
+			$AnimatedSprite2D.stop()
 		
 		#move the bird (????)
 		move_and_collide(velocity * delta)

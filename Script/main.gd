@@ -50,6 +50,7 @@ func _input(event):
 				else:
 					if$Bird.flying:
 						$Bird.flap()
+						check_top() #Check if the bird flaps too high and is off the screen = kill
 					
 
 func start_game():
@@ -95,5 +96,25 @@ func generate_pipes():
 	add_child(pipe)					#We add pipe as a child of the main scene
 	pipes.append(pipe) 				#Add Pipes to array to keep track of them.
 
+#When you are flying out of the screen
+func check_top():
+	#If bird ypos is below zero it is off the screen
+	if $Bird.position.y < 0:
+		$Bird.falling = true
+		stop_game()
+		
+func stop_game():
+	$PipeTimer.stop()
+	$Bird.flying = false
+	game_running = false
+	game_over = true
+
+#When you hit the pipes, bird dies and falls to the ground. 
 func bird_hit():
-	pass
+	$Bird.falling = true
+	stop_game()
+
+#When hitting the ground
+func _on_ground_hit():
+	$Bird.falling = false
+	stop_game()
