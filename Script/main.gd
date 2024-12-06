@@ -35,6 +35,8 @@ func new_game():
 	score = 0
 	scroll = 0
 	
+	$ScoreLabel.text = "SCORE: " + str(score)
+	
 	pipes.clear()
 	generate_pipes()		#Generate Start-Pipes before the timer auto-generatest hem
 	
@@ -93,8 +95,16 @@ func generate_pipes():
 	
 	#Function that happens when bird hites the pipes
 	pipe.hit.connect(bird_hit)
+	
+	pipe.scored.connect(scored)
+	
 	add_child(pipe)					#We add pipe as a child of the main scene
 	pipes.append(pipe) 				#Add Pipes to array to keep track of them.
+
+#Update the label text
+func scored():
+	score += 1
+	$ScoreLabel.text = "SCORE: " + str(score)
 
 #When you are flying out of the screen
 func check_top():
