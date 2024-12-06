@@ -36,6 +36,9 @@ func new_game():
 	scroll = 0
 	
 	$ScoreLabel.text = "SCORE: " + str(score)
+	$GameOver.hide() 		#Hide the buton when new game starts
+	
+	get_tree().call_group("pipes", "queue_free") #delete all existing pipes of last game
 	
 	pipes.clear()
 	generate_pipes()		#Generate Start-Pipes before the timer auto-generatest hem
@@ -115,6 +118,7 @@ func check_top():
 		
 func stop_game():
 	$PipeTimer.stop()
+	$GameOver.show()
 	$Bird.flying = false
 	game_running = false
 	game_over = true
@@ -128,3 +132,7 @@ func bird_hit():
 func _on_ground_hit():
 	$Bird.falling = false
 	stop_game()
+
+
+func _on_canvas_layer_restart() -> void:
+	new_game()

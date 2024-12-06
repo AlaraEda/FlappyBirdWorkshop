@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6q1xqpw52vfw"]
+[gd_scene load_steps=7 format=3 uid="uid://c6q1xqpw52vfw"]
 
 [ext_resource type="Script" path="res://Script/main.gd" id="1_mcxwd"]
 [ext_resource type="Texture2D" uid="uid://d38ceuoo614k4" path="res://assets/bg.png" id="1_vxlnf"]
 [ext_resource type="PackedScene" uid="uid://cn07aykinja38" path="res://Scenes/pipe.tscn" id="2_e62me"]
 [ext_resource type="PackedScene" uid="uid://bd3otcij1t3fc" path="res://Scenes/bird.tscn" id="2_ficyh"]
 [ext_resource type="PackedScene" uid="uid://c75d3arj8gxcq" path="res://Scenes/ground.tscn" id="4_ryeoj"]
+[ext_resource type="PackedScene" uid="uid://c63785uu4pe4d" path="res://Scenes/game_over.tscn" id="6_p0nyj"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_mcxwd")
@@ -36,5 +37,8 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 40
 text = "SCORE: 0"
 
+[node name="GameOver" parent="." instance=ExtResource("6_p0nyj")]
+
 [connection signal="hit" from="Ground" to="." method="_on_ground_hit"]
 [connection signal="timeout" from="PipeTimer" to="." method="_on_pipe_timer_timeout"]
+[connection signal="restart" from="GameOver" to="." method="_on_canvas_layer_restart"]
